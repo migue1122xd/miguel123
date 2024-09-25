@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portafolio de Miguel Villena</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FAF9F6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Estilos para el header */
+        header {
+            background-color: #003DA5;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(0, 61, 165, 0.7), rgba(0, 61, 165, 0.7)), url('https://files.oaiusercontent.com/file-48DKXV1xst1u6kUvStvmJHJT?se=2024-09-25T04%3A32%3A20Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D47e0bbdf-1d8a-428e-880a-a8fe454adddb.webp&sig=/gp4cw0e/qfWIe%2B3mBWa5o4%2BHBOIsMlitpW6ExkFP4E%3D') no-repeat center;
+            background-size: cover;
+            color: #fff;
+            padding: 160px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+            color: white; /* Cambiado a blanco */
+        }
+
+        .button-primary {
+            background-color: #FFD700;
+            color: #003DA5;
+            padding: 15px 30px;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .button-primary:hover {
+            background-color: #FFA500;
+            transform: scale(1.1);
+        }
+
+        /* Estilos para las secciones */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #003DA5;
+        }
+
+        /* Sección de Sobre Mí con Parallax */
+        #sobre-mi {
+            background: url('https://images.pexels.com/photos/97076/pexels-photo-97076.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 120px 20px;
+            color: #fff;
+        }
+
+        #sobre-mi img {
+            border-radius: 50%;
+            margin-top: 20px;
+            width: 120px;
+            transition: transform 0.3s ease;
+        }
+
+        #sobre-mi img:hover {
+            transform: scale(1.1);
+        }
+
+        #sobre-mi p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Sección de Habilidades */
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .skill {
+            width: 200px;
+            background-color: #F0F0F0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill i {
+            font-size: 3rem;
+            color: #003DA5;
+            margin-bottom: 10px;
+        }
+
+        /* Sección de Proyectos */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .project {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Sección de Videos */
+        .video-container {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .video {
+            width: 45%;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1.1rem;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: #003DA5;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .contact-form button:hover {
+            background-color: #FFD700;
+            transform: scale(1.05);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #003DA5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+    </style>
+    <!-- Importar fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Importar íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <header>
+        <h1>Portafolio de Miguel Villena</h1>
+        <nav>
+            <ul>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero">
+        <h2>Bienvenido a mi Portafolio</h2>
+        <button class="button-primary">Descubre Más</button>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <img src="https://via.placeholder.com/120" alt="Miguel Villena">
+        <p>Hola, soy Miguel Villena, un joven universitario apasionado por el voleibol y amante de los animales. Estudio Administración y tengo como meta crear empresas que hagan la diferencia.</p>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fas fa-code"></i>
+                <h3>Programación</h3>
+                <p>Conocimiento en varios lenguajes y desarrollo de aplicaciones.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-users"></i>
+                <h3>Trabajo en Equipo</h3>
+                <p>Colaboración y comunicación efectiva en grupos.</p>
+            </div>
+            <div class="skill">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Marketing Digital</h3>
+                <p>Estrategias para aumentar la visibilidad online.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos">
+        <h2>Proyectos</h2>
+        <div class="grid-container">
+            <div class="project">
+                <h3>Aplicación de Productividad</h3>
+                <p>Aplicación web para optimizar la productividad en equipo.</p>
+            </div>
+            <div class="project">
+                <h3>Portafolio Personal</h3>
+                <p>Diseño y desarrollo de mi portafolio personal en línea.</p>
+            </div>
+            <div class="project">
+                <h3>Juego Interactivo</h3>
+                <p>Desarrollo de un juego interactivo en tiempo real.</p>
+            </div>
+            <div class="project">
+                <h3>Blog de Deportes</h3>
+                <p>Creación de un blog para compartir noticias y opiniones deportivas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Videos -->
+    <section id="videos">
+        <h2>Videos</h2>
+        <div class="video-container">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+                <p>Introducción a mi portafolio</p>
+            </div>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+                <p>Mis proyectos destacados</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Nombre" required>
+            <input type="email" placeholder="Correo" required>
+            <textarea placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Miguel Villena. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
